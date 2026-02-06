@@ -17,6 +17,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
+#ifndef QUAKE_INPUT_H
+#define QUAKE_INPUT_H
 // input.h -- external (non-keyboard) input devices
 
 void IN_Init (void);
@@ -37,3 +39,4 @@ void IN_ClearStates (void);
 
 void Force_CenterView_f (void);
 
+#endif /* QUAKE_INPUT_H */

@@ -17,6 +17,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
+#ifndef QUAKE_VID_H
+#define QUAKE_VID_H
 // vid.h -- video driver defs
 
 #define VID_CBITS	6
@@ -83,3 +85,4 @@ int VID_SetMode (int modenum, unsigned char *palette);
 void VID_HandlePause (qboolean pause);
 // called only on Win32, when pause happens, so the mouse can be released
 
+#endif /* QUAKE_VID_H */

@@ -17,6 +17,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
+#ifndef QUAKE_R_LOCAL_H
+#define QUAKE_R_LOCAL_H
 // r_local.h -- private refresh defs
 
 #ifndef GLQUAKE
@@ -314,3 +316,4 @@ void R_SplitEntityOnNode2 (mnode_t *node);
 void R_MarkLights (dlight_t *light, int bit, mnode_t *node);
 
 #endif
+#endif /* QUAKE_R_LOCAL_H */

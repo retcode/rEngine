@@ -17,6 +17,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
+#ifndef QUAKE_DRAW_H
+#define QUAKE_DRAW_H
 
 // draw.h -- these are the only functions outside the refresh allowed
 // to touch the vid buffer
@@ -38,3 +40,4 @@ void Draw_FadeScreen (void);
 void Draw_String (int x, int y, char *str);
 qpic_t *Draw_PicFromWad (char *name);
 qpic_t *Draw_CachePic (char *path);
+#endif /* QUAKE_DRAW_H */

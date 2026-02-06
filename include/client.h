@@ -17,6 +17,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
+#ifndef QUAKE_CLIENT_H
+#define QUAKE_CLIENT_H
 // client.h
 
 typedef struct
@@ -373,3 +375,4 @@ void V_SetContentsColor (int contents);
 //
 void CL_InitTEnts (void);
 void CL_SignonReply (void);
+#endif /* QUAKE_CLIENT_H */

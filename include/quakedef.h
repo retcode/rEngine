@@ -17,6 +17,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
+#ifndef QUAKE_QUAKEDEF_H
+#define QUAKE_QUAKEDEF_H
 // quakedef.h -- primary header for client
 
 //#define	GLTEST			// experimental stuff
@@ -347,3 +349,4 @@ extern	cvar_t	chase_active;
 void Chase_Init (void);
 void Chase_Reset (void);
 void Chase_Update (void);
+#endif /* QUAKE_QUAKEDEF_H */

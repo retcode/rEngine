@@ -17,6 +17,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
+#ifndef QUAKE_MENU_H
+#define QUAKE_MENU_H
 
 //
 // the net drivers should just set the apropriate bits in m_activenet,
@@ -36,3 +38,4 @@ void M_Draw (void);
 void M_ToggleMenu_f (void);
 
 
+#endif /* QUAKE_MENU_H */

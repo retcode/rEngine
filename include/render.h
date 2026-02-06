@@ -17,6 +17,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
+#ifndef QUAKE_RENDER_H
+#define QUAKE_RENDER_H
 
 // refresh.h -- public interface to refresh functions
 
@@ -156,3 +158,4 @@ void D_DeleteSurfaceCache (void);
 void D_InitCaches (void *buffer, int size);
 void R_SetVrect (vrect_t *pvrect, vrect_t *pvrectin, int lineadj);
 
+#endif /* QUAKE_RENDER_H */

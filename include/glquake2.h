@@ -17,12 +17,14 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
+#ifndef QUAKE_GLQUAKE2_H
+#define QUAKE_GLQUAKE2_H
 // disable data conversion warnings
 
 #pragma warning(disable : 4244)     // MIPS
 #pragma warning(disable : 4136)     // X86
 #pragma warning(disable : 4051)     // ALPHA
-  
+
 #include <windows.h>
 
 #include <gl\gl.h>
@@ -208,3 +210,4 @@ extern	int		gl_alpha_format;
 
 void R_TranslatePlayerSkin (int playernum);
 void GL_Bind (int texnum);
+#endif /* QUAKE_GLQUAKE2_H */

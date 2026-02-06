@@ -17,6 +17,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
+#ifndef QUAKE_MODELGEN_H
+#define QUAKE_MODELGEN_H
 //
 // modelgen.h: header file for model generation program
 //
@@ -132,3 +134,4 @@ typedef struct {
 #define IDPOLYHEADER	(('O'<<24)+('P'<<16)+('D'<<8)+'I')
 														// little-endian "IDPO"
 
+#endif /* QUAKE_MODELGEN_H */

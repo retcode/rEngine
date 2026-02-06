@@ -17,6 +17,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
+#ifndef QUAKE_MATHLIB_H
+#define QUAKE_MATHLIB_H
 // mathlib.h
 
 typedef float vec_t;
@@ -87,3 +89,4 @@ float	anglemod(float a);
 	)										\
 	:										\
 		BoxOnPlaneSide( (emins), (emaxs), (p)))
+#endif /* QUAKE_MATHLIB_H */

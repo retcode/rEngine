@@ -17,6 +17,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
+#ifndef QUAKE_NET_H
+#define QUAKE_NET_H
 // net.h -- quake's interface to the networking layer
 
 struct qsockaddr
@@ -335,3 +337,4 @@ extern	qboolean	slistSilent;
 extern	qboolean	slistLocal;
 
 void NET_Slist_f (void);
+#endif /* QUAKE_NET_H */

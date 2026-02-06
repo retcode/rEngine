@@ -17,6 +17,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
+#ifndef QUAKE_SPRITEGN_H
+#define QUAKE_SPRITEGN_H
 //
 // spritegn.h: header file for sprite generation program
 //
@@ -108,3 +110,4 @@ typedef struct {
 #define IDSPRITEHEADER	(('P'<<24)+('S'<<16)+('D'<<8)+'I')
 														// little-endian "IDSP"
 
+#endif /* QUAKE_SPRITEGN_H */

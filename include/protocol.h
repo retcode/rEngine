@@ -17,6 +17,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
+#ifndef QUAKE_PROTOCOL_H
+#define QUAKE_PROTOCOL_H
 // protocol.h -- communications protocols
 
 #define	PROTOCOL_VERSION	15
@@ -165,3 +167,4 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define TE_IMPLOSION		14
 #define TE_RAILTRAIL		15
 #endif
+#endif /* QUAKE_PROTOCOL_H */

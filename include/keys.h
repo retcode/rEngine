@@ -17,6 +17,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
+#ifndef QUAKE_KEYS_H
+#define QUAKE_KEYS_H
 
 //
 // these are the key numbers that should be passed to Key_Event
@@ -131,3 +133,4 @@ void Key_WriteBindings (FILE *f);
 void Key_SetBinding (int keynum, char *binding);
 void Key_ClearStates (void);
 
+#endif /* QUAKE_KEYS_H */

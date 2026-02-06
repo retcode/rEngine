@@ -17,6 +17,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
+#ifndef QUAKE_WORLD_H
+#define QUAKE_WORLD_H
 // world.h
 
 typedef struct
@@ -76,3 +78,4 @@ trace_t SV_Move (vec3_t start, vec3_t mins, vec3_t maxs, vec3_t end, int type, e
 // shouldn't be considered solid objects
 
 // passedict is explicitly excluded from clipping checks (normally NULL)
+#endif /* QUAKE_WORLD_H */

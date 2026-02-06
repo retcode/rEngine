@@ -17,12 +17,14 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
+#ifndef QUAKE_GLQUAKE_H
+#define QUAKE_GLQUAKE_H
 // disable data conversion warnings
 
 #pragma warning(disable : 4244)     // MIPS
 #pragma warning(disable : 4136)     // X86
 #pragma warning(disable : 4051)     // ALPHA
-  
+
 #ifdef USE_SDL
 #include <SDL_opengl.h>
 #else
@@ -255,3 +257,4 @@ extern qboolean gl_mtexable;
 
 void GL_DisableMultitexture(void);
 void GL_EnableMultitexture(void);
+#endif /* QUAKE_GLQUAKE_H */

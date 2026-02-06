@@ -17,6 +17,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
+#ifndef QUAKE_PR_COMP_H
+#define QUAKE_PR_COMP_H
 
 // this file is shared by quake and qcc
 
@@ -177,3 +179,4 @@ typedef struct
 	int		entityfields;
 } dprograms_t;
 
+#endif /* QUAKE_PR_COMP_H */

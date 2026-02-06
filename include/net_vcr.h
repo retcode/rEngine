@@ -17,6 +17,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
+#ifndef QUAKE_NET_VCR_H
+#define QUAKE_NET_VCR_H
 // net_vcr.h
 
 #define VCR_OP_CONNECT					1
@@ -35,3 +37,4 @@ int			VCR_SendMessage (qsocket_t *sock, sizebuf_t *data);
 qboolean	VCR_CanSendMessage (qsocket_t *sock);
 void		VCR_Close (qsocket_t *sock);
 void		VCR_Shutdown (void);
+#endif /* QUAKE_NET_VCR_H */

@@ -17,6 +17,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
+#ifndef QUAKE_WAD_H
+#define QUAKE_WAD_H
 // wad.h
 
 //===============
@@ -73,3 +75,4 @@ void	*W_GetLumpName (char *name);
 void	*W_GetLumpNum (int num);
 
 void SwapPic (qpic_t *pic);
+#endif /* QUAKE_WAD_H */
