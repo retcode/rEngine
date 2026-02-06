@@ -58,21 +58,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #endif
 #endif
 
-#if defined(_WIN32) && !defined(WINDED) && !defined(USE_SDL)
-
-#if defined(_M_IX86)
-#define __i386__	1
-#endif
-
-void	VID_LockBuffer (void);
-void	VID_UnlockBuffer (void);
-
-#else
-
 #define	VID_LockBuffer()
 #define	VID_UnlockBuffer()
-
-#endif
 
 #ifndef id386
 #if defined __i386__ // && !defined __sun__
@@ -257,12 +244,7 @@ typedef struct
 #include "progs.h"
 #include "server.h"
 
-#ifdef GLQUAKE
 #include "gl_model.h"
-#else
-#include "model.h"
-#include "d_iface.h"
-#endif
 
 #include "input.h"
 #include "world.h"
@@ -273,9 +255,7 @@ typedef struct
 #include "crc.h"
 #include "cdaudio.h"
 
-#ifdef GLQUAKE
 #include "glquake.h"
-#endif
 
 //=============================================================================
 
