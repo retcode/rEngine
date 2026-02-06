@@ -18,10 +18,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "quakedef.h"
-#ifndef GLQUAKE
-#include "r_local.h"
-#endif
+#include "q_renderer.h"
+#include "q_client.h"
+#include "q_server.h"
+#include "console.h"
 
 #define MAX_PARTICLES			2048	// default max # of particles at one
 										//  time
