@@ -64,89 +64,99 @@ if(USE_SDL_MIXER)
     add_definitions(-DUSE_SDL_MIXER)
 endif()
 
-# Core game logic sources
-set(GAME_SOURCES
-    src/chase.c
-    src/cl_demo.c
-    src/cl_input.c
-    src/cl_main.c
-    src/cl_parse.c
-    src/cl_tent.c
-    src/cmd.c
-    src/common.c
-    src/console.c
-    src/crc.c
-    src/cvar.c
-    src/host.c
-    src/host_cmd.c
-    src/keys.c
-    src/mathlib.c
-    src/menu.c
-    src/pr_cmds.c
-    src/pr_edict.c
-    src/pr_exec.c
-    src/sbar.c
-    src/view.c
-    src/wad.c
-    src/zone.c
-    src/world.c
+# Common engine sources
+set(COMMON_SOURCES
+    src/common/cmd.c
+    src/common/common.c
+    src/common/console.c
+    src/common/crc.c
+    src/common/cvar.c
+    src/common/host.c
+    src/common/host_cmd.c
+    src/common/keys.c
+    src/common/mathlib.c
+    src/common/wad.c
+    src/common/zone.c
+)
+
+# Client sources
+set(CLIENT_SOURCES
+    src/client/chase.c
+    src/client/cl_demo.c
+    src/client/cl_input.c
+    src/client/cl_main.c
+    src/client/cl_parse.c
+    src/client/cl_tent.c
+    src/client/menu.c
+    src/client/sbar.c
+    src/client/view.c
 )
 
 # Server sources
 set(SERVER_SOURCES
-    src/sv_main.c
-    src/sv_move.c
-    src/sv_phys.c
-    src/sv_user.c
+    src/server/sv_main.c
+    src/server/sv_move.c
+    src/server/sv_phys.c
+    src/server/sv_user.c
+    src/server/world.c
 )
 
 # OpenGL renderer sources
 set(GL_SOURCES
-    src/gl_draw.c
-    src/gl_mesh.c
-    src/gl_model.c
-    src/gl_refrag.c
-    src/gl_rlight.c
-    src/gl_rmain.c
-    src/gl_rmisc.c
-    src/gl_rsurf.c
-    src/gl_screen.c
-    src/gl_warp.c
-    src/r_part.c
+    src/renderer/gl_draw.c
+    src/renderer/gl_mesh.c
+    src/renderer/gl_model.c
+    src/renderer/gl_refrag.c
+    src/renderer/gl_rlight.c
+    src/renderer/gl_rmain.c
+    src/renderer/gl_rmisc.c
+    src/renderer/gl_rsurf.c
+    src/renderer/gl_screen.c
+    src/renderer/gl_warp.c
+    src/renderer/r_part.c
 )
 
 # Sound core sources
 set(SOUND_SOURCES
-    src/snd_dma.c
-    src/snd_mem.c
-    src/snd_mix.c
+    src/sound/snd_dma.c
+    src/sound/snd_mem.c
+    src/sound/snd_mix.c
 )
 
 # Networking sources (cross-platform UDP)
 set(NET_SOURCES
-    src/net_main.c
-    src/net_loop.c
-    src/net_dgrm.c
-    src/net_vcr.c
-    src/net_sdl.c
+    src/net/net_main.c
+    src/net/net_loop.c
+    src/net/net_dgrm.c
+    src/net/net_vcr.c
+    src/net/net_sdl.c
+)
+
+# Progs (QuakeC VM) sources
+set(PROGS_SOURCES
+    src/progs/pr_cmds.c
+    src/progs/pr_edict.c
+    src/progs/pr_exec.c
 )
 
 # SDL2 platform layer sources
 set(SDL_SOURCES
-    src/sys_sdl.c
-    src/gl_vid_sdl.c
-    src/in_sdl.c
-    src/snd_sdl.c
-    src/cd_sdl.c
+    src/platform/sys_sdl.c
+    src/platform/gl_vid_sdl.c
+    src/platform/in_sdl.c
+    src/platform/snd_sdl.c
+    src/platform/cd_sdl.c
 )
 
 # Create the executable
 add_executable(glquake
-    ${GAME_SOURCES}
+    ${COMMON_SOURCES}
+    ${CLIENT_SOURCES}
     ${SERVER_SOURCES}
     ${GL_SOURCES}
     ${SOUND_SOURCES}
     ${NET_SOURCES}
+    ${PROGS_SOURCES}
     ${SDL_SOURCES}
 )
 
