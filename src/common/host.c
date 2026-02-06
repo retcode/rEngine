@@ -875,7 +875,7 @@ void Host_InitVCR (quakeparms_t *parms)
 				Sys_FileWrite(vcrFile, "-playback", len);
 				continue;
 			}
-			len = Q_strlen(com_argv[i]) + 1;
+			len = strlen(com_argv[i]) + 1;
 			Sys_FileWrite(vcrFile, &len, sizeof(int));
 			Sys_FileWrite(vcrFile, com_argv[i], len);
 		}

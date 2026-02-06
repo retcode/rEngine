@@ -143,7 +143,7 @@ static int GetLocalAddress(void)
     myAddr = *(unsigned long *)local->h_addr_list[0];
 
     // Set hostname cvar if not already set
-    if (Q_strcmp(hostname.string, "UNNAMED") == 0) {
+    if (strcmp(hostname.string, "UNNAMED") == 0) {
         buff[15] = 0;
         Cvar_Set("hostname", buff);
     }
@@ -192,8 +192,8 @@ int UDP_Init(void)
     ((struct sockaddr_in *)&broadcastaddr)->sin_port = htons((unsigned short)net_hostport);
 
     UDP_GetSocketAddr(net_controlsocket, &addr);
-    Q_strcpy(my_tcpip_address, UDP_AddrToString(&addr));
-    colon = Q_strrchr(my_tcpip_address, ':');
+    strcpy(my_tcpip_address, UDP_AddrToString(&addr));
+    colon = strrchr(my_tcpip_address, ':');
     if (colon)
         *colon = 0;
 
@@ -385,7 +385,7 @@ int UDP_GetSocketAddr(int socket, struct qsockaddr *addr)
     socklen_t addrlen = sizeof(struct qsockaddr);
     unsigned int a;
 
-    Q_memset(addr, 0, sizeof(struct qsockaddr));
+    memset(addr, 0, sizeof(struct qsockaddr));
     getsockname(socket, (struct sockaddr *)addr, &addrlen);
 
     a = ((struct sockaddr_in *)addr)->sin_addr.s_addr;
@@ -402,11 +402,11 @@ int UDP_GetNameFromAddr(struct qsockaddr *addr, char *name)
     hostentry = gethostbyaddr((char *)&((struct sockaddr_in *)addr)->sin_addr,
                               sizeof(struct in_addr), AF_INET);
     if (hostentry) {
-        Q_strncpy(name, (char *)hostentry->h_name, NET_NAMELEN - 1);
+        strncpy(name, (char *)hostentry->h_name, NET_NAMELEN - 1);
         return 0;
     }
 
-    Q_strcpy(name, UDP_AddrToString(addr));
+    strcpy(name, UDP_AddrToString(addr));
     return 0;
 }
 
