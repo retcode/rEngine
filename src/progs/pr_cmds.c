@@ -18,7 +18,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "quakedef.h"
+#include "q_server.h"
+#include "q_progs.h"
+#include "render.h"
+#include "gl_model.h"
+#include "world.h"
+#include "net.h"
+#include "cmd.h"
+#include "console.h"
 
 #define	RETURN_EDICT(e) (((int *)pr_globals)[OFS_RETURN] = EDICT_TO_PROG(e))
 

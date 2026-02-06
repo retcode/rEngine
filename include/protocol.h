@@ -167,4 +167,19 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define TE_IMPLOSION		14
 #define TE_RAILTRAIL		15
 #endif
+
+// usercmd_t - client movement command (shared between client and server)
+typedef struct
+{
+	vec3_t	viewangles;
+
+// intended velocities
+	float	forwardmove;
+	float	sidemove;
+	float	upmove;
+#ifdef QUAKE2
+	byte	lightlevel;
+#endif
+} usercmd_t;
+
 #endif /* QUAKE_PROTOCOL_H */

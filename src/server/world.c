@@ -19,7 +19,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 // world.c -- world query functions
 
-#include "quakedef.h"
+#include "q_server.h"
+#include "render.h"
+#include "gl_model.h"
+#include "world.h"
+#include "console.h"
 
 /*
 
