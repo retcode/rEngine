@@ -19,10 +19,18 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 // mathlib.c -- math primitives
 
-#include <math.h>
-#include "quakedef.h"
+#include "q_common.h"
 
-void Sys_Error (char *error, ...);
+/* mplane_t is needed for BoxOnPlaneSide but defined in gl_model.h
+   which has heavy dependencies. Include the full definition here. */
+typedef struct mplane_s
+{
+	vec3_t	normal;
+	float	dist;
+	byte	type;
+	byte	signbits;
+	byte	pad[2];
+} mplane_t;
 
 vec3_t vec3_origin = {0,0,0};
 int nanmask = 255<<23;

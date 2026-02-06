@@ -19,13 +19,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 // snd_mix.c -- portable code to mix sounds for snd_dma.c
 
-#include "quakedef.h"
+#include "q_common.h"
+#include "sound.h"
+#include "console.h"
+#include "cvar.h"
 
-#if defined(_WIN32) && !defined(USE_SDL)
-#include "winquake.h"
-#else
 #define DWORD	unsigned long
-#endif
 
 #define	PAINTBUFFER_SIZE	512
 portable_samplepair_t paintbuffer[PAINTBUFFER_SIZE];
