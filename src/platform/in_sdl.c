@@ -20,7 +20,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 // in_sdl.c -- SDL2 input driver
 
-#include "quakedef.h"
+#include "q_client.h"
+#include "input.h"
+#include "keys.h"
+#include "cmd.h"
+#include "console.h"
 #include "sdl_local.h"
 
 // Mouse variables

@@ -19,7 +19,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 // net_main.c
 
-#include "quakedef.h"
+#include "q_net.h"
+#include "q_server.h"
+#include "render.h"
+#include "client.h"
+#include "cmd.h"
+#include "console.h"
 #include "net_vcr.h"
 #include <stdint.h>
 

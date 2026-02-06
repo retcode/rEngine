@@ -52,7 +52,11 @@ unsigned long inet_addr(const char *cp);
 #endif
 #endif	// BAN_TEST
 
-#include "quakedef.h"
+#include "q_net.h"
+#include "q_server.h"
+#include "keys.h"
+#include "cmd.h"
+#include "console.h"
 #include "net_dgrm.h"
 
 // these two macros are to make the code more readable
