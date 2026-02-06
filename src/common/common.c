@@ -1037,7 +1037,6 @@ va
 
 does a varargs printf into a temp buffer, so I don't need to have
 varargs versions of all text functions.
-FIXME: make this buffer size safe someday
 ============
 */
 char    *va(char *format, ...)
@@ -1046,7 +1045,7 @@ char    *va(char *format, ...)
 	static char             string[1024];
 	
 	va_start (argptr, format);
-	vsprintf (string, format,argptr);
+	vsnprintf(string, sizeof(string), format, argptr);
 	va_end (argptr);
 
 	return string;  
