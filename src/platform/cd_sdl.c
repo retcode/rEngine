@@ -20,7 +20,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 // cd_sdl.c -- SDL_mixer music playback for OGG/MP3 files
 
-#include "quakedef.h"
+#include "q_common.h"
+#include "cdaudio.h"
+#include "sound.h"
+#include "cmd.h"
+#include "console.h"
 
 #ifdef USE_SDL_MIXER
 

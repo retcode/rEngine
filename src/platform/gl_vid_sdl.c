@@ -20,8 +20,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 // gl_vid_sdl.c -- SDL2 OpenGL video driver
 
-#include "quakedef.h"
+#include "q_renderer.h"
 #include "sdl_local.h"
+#include "cmd.h"
+#include "console.h"
 
 // GL_MULTISAMPLE may not be defined on older systems
 #ifndef GL_MULTISAMPLE

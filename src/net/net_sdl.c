@@ -20,7 +20,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 // net_sdl.c -- Cross-platform UDP network driver using SDL-compatible code
 
-#include "quakedef.h"
+#include "q_common.h"
+#include "net.h"
 
 #ifdef _WIN32
 #include <winsock2.h>

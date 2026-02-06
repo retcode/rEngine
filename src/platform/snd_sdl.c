@@ -21,7 +21,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 // snd_sdl.c -- SDL2 sound driver
 
 #include <SDL.h>
-#include "quakedef.h"
+#include "q_common.h"
+#include "sound.h"
 
 static SDL_AudioDeviceID audio_device = 0;
 static qboolean snd_inited = false;
