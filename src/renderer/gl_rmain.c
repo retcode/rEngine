@@ -110,16 +110,25 @@ extern	cvar_t	gl_ztrick;
 =================
 R_CullBox
 
-Returns true if the box is completely outside the frustom
+Returns true if the box is completely outside the frustum.
+Uses direct dot-product test against the AABB "p-vertex" (the corner
+farthest along each plane normal). If even that corner is behind the
+plane, the entire box is outside.
 =================
 */
 qboolean R_CullBox (vec3_t mins, vec3_t maxs)
 {
 	int		i;
 
-	for (i=0 ; i<4 ; i++)
-		if (BoxOnPlaneSide (mins, maxs, &frustum[i]) == 2)
+	for (i = 0; i < 4; i++)
+	{
+		float d;
+		d = frustum[i].normal[0] * (frustum[i].normal[0] >= 0 ? maxs[0] : mins[0])
+		  + frustum[i].normal[1] * (frustum[i].normal[1] >= 0 ? maxs[1] : mins[1])
+		  + frustum[i].normal[2] * (frustum[i].normal[2] >= 0 ? maxs[2] : mins[2]);
+		if (d < frustum[i].dist)
 			return true;
+	}
 	return false;
 }
 
@@ -869,30 +878,32 @@ int SignbitsForPlane (mplane_t *out)
 void R_SetFrustum (void)
 {
 	int		i;
+	float	sx, cx, sy, cy;
 
-	if (r_refdef.fov_x == 90)
-	{
-		// front side is visible
+	// Direct trigonometric construction of frustum plane normals.
+	// Each normal points inward (toward the visible volume).
+	sx = sin(r_refdef.fov_x * M_PI / 360.0);
+	cx = cos(r_refdef.fov_x * M_PI / 360.0);
+	sy = sin(r_refdef.fov_y * M_PI / 360.0);
+	cy = cos(r_refdef.fov_y * M_PI / 360.0);
 
-		VectorAdd (vpn, vright, frustum[0].normal);
-		VectorSubtract (vpn, vright, frustum[1].normal);
+	// Left plane (normal points right)
+	for (i = 0; i < 3; i++)
+		frustum[0].normal[i] = sx * vpn[i] + cx * vright[i];
 
-		VectorAdd (vpn, vup, frustum[2].normal);
-		VectorSubtract (vpn, vup, frustum[3].normal);
-	}
-	else
-	{
-		// rotate VPN right by FOV_X/2 degrees
-		RotatePointAroundVector( frustum[0].normal, vup, vpn, -(90-r_refdef.fov_x / 2 ) );
-		// rotate VPN left by FOV_X/2 degrees
-		RotatePointAroundVector( frustum[1].normal, vup, vpn, 90-r_refdef.fov_x / 2 );
-		// rotate VPN up by FOV_X/2 degrees
-		RotatePointAroundVector( frustum[2].normal, vright, vpn, 90-r_refdef.fov_y / 2 );
-		// rotate VPN down by FOV_X/2 degrees
-		RotatePointAroundVector( frustum[3].normal, vright, vpn, -( 90 - r_refdef.fov_y / 2 ) );
-	}
+	// Right plane (normal points left)
+	for (i = 0; i < 3; i++)
+		frustum[1].normal[i] = sx * vpn[i] - cx * vright[i];
 
-	for (i=0 ; i<4 ; i++)
+	// Bottom plane (normal points up)
+	for (i = 0; i < 3; i++)
+		frustum[2].normal[i] = sy * vpn[i] + cy * vup[i];
+
+	// Top plane (normal points down)
+	for (i = 0; i < 3; i++)
+		frustum[3].normal[i] = sy * vpn[i] - cy * vup[i];
+
+	for (i = 0; i < 4; i++)
 	{
 		frustum[i].type = PLANE_ANYZ;
 		frustum[i].dist = DotProduct (r_origin, frustum[i].normal);
