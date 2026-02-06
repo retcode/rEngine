@@ -1114,10 +1114,9 @@ edict_t *EDICT_NUM(int n)
 int NUM_FOR_EDICT(edict_t *e)
 {
 	int		b;
-	
-	b = (byte *)e - (byte *)sv.edicts;
-	b = b / pr_edict_size;
-	
+
+	b = (int)(((byte *)e - (byte *)sv.edicts) / pr_edict_size);
+
 	if (b < 0 || b >= sv.num_edicts)
 		Sys_Error ("NUM_FOR_EDICT: bad pointer");
 	return b;

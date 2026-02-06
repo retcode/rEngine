@@ -83,7 +83,7 @@ cvar_t	r_shadows = {"r_shadows","0"};
 cvar_t	r_mirroralpha = {"r_mirroralpha","1"};
 cvar_t	r_wateralpha = {"r_wateralpha","1"};
 cvar_t	r_dynamic = {"r_dynamic","1"};
-cvar_t	r_novis = {"r_novis","1"};
+cvar_t	r_novis = {"r_novis","0"};
 
 cvar_t	gl_finish = {"gl_finish","0"};
 cvar_t	gl_clear = {"gl_clear","1"};
@@ -111,9 +111,6 @@ Returns true if the box is completely outside the frustom
 */
 qboolean R_CullBox (vec3_t mins, vec3_t maxs)
 {
-	// TEMP: Disable frustum culling entirely to fix missing entities
-	return false;
-
 	int		i;
 
 	for (i=0 ; i<4 ; i++)
@@ -893,11 +890,8 @@ void R_SetFrustum (void)
 
 	for (i=0 ; i<4 ; i++)
 	{
-		// Normalize frustum plane normals for correct BoxOnPlaneSide calculations
-		VectorNormalize(frustum[i].normal);
 		frustum[i].type = PLANE_ANYZ;
-		// Add small margin to prevent edge-case culling issues with modern compilers
-		frustum[i].dist = DotProduct (r_origin, frustum[i].normal) - 16.0f;
+		frustum[i].dist = DotProduct (r_origin, frustum[i].normal);
 		frustum[i].signbits = SignbitsForPlane (&frustum[i]);
 	}
 }
