@@ -18,7 +18,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-#include "quakedef.h"
+#include "q_client.h"
+#include "q_server.h"
+#include "q_progs.h"
+#include "gl_model.h"
+#include "world.h"
+#include "keys.h"
+#include "cmd.h"
+#include "console.h"
+#include "screen.h"
 
 extern cvar_t	pausable;
 

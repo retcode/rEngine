@@ -19,7 +19,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 // cl_main.c  -- client main loop
 
-#include "quakedef.h"
+#include "q_client.h"
+#include "q_server.h"
+#include "gl_model.h"
+#include "cmd.h"
+#include "console.h"
+#include "screen.h"
 
 // we need to declare some mouse variables here, because the menu system
 // references them even when on a unix system.

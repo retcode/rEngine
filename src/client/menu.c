@@ -17,11 +17,19 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
-#include "quakedef.h"
-
-#if defined(_WIN32) && !defined(USE_SDL)
-#include "winquake.h"
-#endif
+#include "q_client.h"
+#include "q_server.h"
+#include "q_net.h"
+#include "cmd.h"
+#include "console.h"
+#include "wad.h"
+#include "draw.h"
+#include "screen.h"
+#include "keys.h"
+#include "sound.h"
+#include "view.h"
+#include "menu.h"
+#include "input.h"
 
 #ifdef USE_SDL
 #include "sdl_local.h"

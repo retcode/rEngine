@@ -19,7 +19,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 // sbar.c -- status bar code
 
-#include "quakedef.h"
+#include "q_client.h"
+#include "q_renderer.h"
+#include "q_server.h"
+#include "console.h"
+#include "cmd.h"
+#include "screen.h"
+#include "sbar.h"
+#include "wad.h"
+#include "draw.h"
 
 
 int			sb_updates;		// if >= vid.numpages, no update needed
